@@ -5,12 +5,11 @@ const cors = require('cors');
 require('dotenv').config(); // Loads .env variables
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+// The PORT is no longer needed here, Vercel handles it
+// const PORT = process.env.PORT || 3001; 
 
-// Use CORS middleware
 app.use(cors());
 
-// Define the weather endpoint
 app.get('/weather', async (req, res) => {
   const { city } = req.query;
   if (!city) {
@@ -24,9 +23,7 @@ app.get('/weather', async (req, res) => {
     const response = await axios.get(apiUrl);
     res.json(response.data);
   } catch (error) {
-    // Log the error for debugging
     console.error("Error fetching weather data:", error.message);
-    // Send a more specific error status if available
     if (error.response) {
       res.status(error.response.status).json({ error: error.response.data.message });
     } else {
@@ -35,6 +32,4 @@ app.get('/weather', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+module.exports = app;
