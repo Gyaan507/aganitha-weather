@@ -1,0 +1,205 @@
+/* client/src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #333; /* Default text color */
+}
+
+.app-container {
+  background: rgba(255, 255, 255, 0.95); /* Slightly less transparent */
+  padding: 35px; /* More padding */
+  border-radius: 18px; /* Slightly more rounded */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); /* Stronger shadow for depth */
+  width: 100%;
+  max-width: 550px; /* Slightly wider */
+  text-align: center;
+}
+
+.app-title {
+  color: #2c3e50; /* Darker, more prominent title */
+  margin-bottom: 25px; /* More space below title */
+  font-size: 36px; /* Larger title */
+  font-weight: 700;
+}
+
+/* Search Form - Enhanced */
+.search-form {
+  display: flex;
+  gap: 12px; /* Slightly more space between input and button */
+  margin-bottom: 30px; /* More space below the form */
+  align-items: center; /* Vertically align items */
+}
+
+.city-input {
+  flex-grow: 1;
+  padding: 15px 20px; /* Bigger padding for a larger input */
+  border: 2px solid #a48cb3; /* More prominent border */
+  border-radius: 10px; /* Slightly more rounded */
+  font-size: 18px; /* Larger font inside input */
+  outline: none; /* Remove default outline */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.city-input::placeholder {
+  color: #888; /* Darker placeholder text */
+}
+
+.city-input:focus {
+  border-color: #8e44ad; /* Highlight on focus */
+  box-shadow: 0 0 8px rgba(142, 68, 173, 0.3); /* Subtle glow on focus */
+}
+
+.search-button {
+  padding: 15px 25px; /* Bigger padding for a larger button */
+  background-color: #8e44ad;
+  color: white;
+  border: none;
+  border-radius: 10px; /* Slightly more rounded */
+  font-size: 18px; /* Larger font on button */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Add transform for subtle click effect */
+}
+
+.search-button:hover {
+  background-color: #9b59b6;
+  transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+.search-button:active {
+  transform: translateY(0); /* "Press down" effect */
+}
+
+/* Error Message */
+.error-message {
+  color: #c0392b; /* Darker red for error */
+  background-color: #fcebeb; /* Lighter background for error */
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+
+/* Weather Card - Enhanced */
+.weather-card {
+  background: #ffffff; /* Pure white background for contrast */
+  padding: 25px; /* More padding */
+  border-radius: 12px; /* Slightly more rounded */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* Stronger shadow */
+  animation: fadeIn 0.6s ease-in-out; /* Slightly slower animation */
+  border: 1px solid #eee; /* Subtle border */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.city-name {
+  font-size: 32px; /* Larger city name */
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #34495e; /* Darker text */
+}
+
+.weather-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* More space between icon and temp */
+  margin-bottom: 20px;
+}
+
+.weather-icon {
+  width: 120px; /* Larger icon */
+  height: 120px; /* Larger icon */
+}
+
+.temperature {
+  font-size: 64px; /* Even larger temperature */
+  font-weight: 300;
+  color: #2c3e50;
+}
+
+.weather-description {
+  font-size: 22px; /* Larger description */
+  text-transform: capitalize;
+  color: #666;
+  margin-bottom: 25px; /* More space */
+  font-weight: 400;
+}
+
+.weather-details {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 18px; /* More space between detail items */
+  text-align: left;
+}
+
+.detail-item {
+  background: #f0f4f7; /* Lighter background for details */
+  padding: 12px 18px; /* More padding */
+  border-radius: 10px; /* Slightly more rounded */
+  font-size: 15px; /* Slightly larger font */
+  color: #555;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow on details */
+}
+
+.detail-item strong {
+  color: #333;
+}
+
+/* Responsive */
+@media (max-width: 580px) {
+  .app-container {
+    padding: 25px;
+    margin: 10px; /* Add some margin on smaller screens */
+  }
+
+  .app-title {
+    font-size: 30px;
+  }
+
+  .search-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .city-input, .search-button {
+    width: 100%; /* Full width on small screens */
+    box-sizing: border-box; /* Include padding in width */
+  }
+
+  .weather-main {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .weather-icon {
+    width: 90px;
+    height: 90px;
+  }
+
+  .temperature {
+    font-size: 52px;
+  }
+
+  .weather-description {
+    font-size: 18px;
+  }
+
+  .weather-details {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+}
